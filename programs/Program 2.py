@@ -25,4 +25,5 @@ else:
     print(f"Maximum number of patients: {max_patients} (Hour {max_hour})")
     print(f"Minimum number of patients: {min_patients}")
     print(f"Peak hour: Hour {peak_hour}")
+    print(f"Average number of patients in an hour: {average:.2f}")
     print(f"Number of hours above average: {above_average_hours}")
