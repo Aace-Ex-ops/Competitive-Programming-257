@@ -20,17 +20,6 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
 
-def insertion_sort(arr):
-    n = len(arr)
-    for i in range(1, n):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
-    return arr
-
 N = int(input("Enter number of products: "))
 
 if N <= 0:
@@ -51,9 +40,4 @@ else:
     selection_sorted = selection_sort(prices.copy())
     print("\nPrices sorted using Selection Sort:")
     for price in selection_sorted:
-        print(price)
-
-    insertion_sorted = insertion_sort(prices.copy())
-    print("\nPrices sorted using Insertion Sort:")
-    for price in insertion_sorted:
         print(price)
