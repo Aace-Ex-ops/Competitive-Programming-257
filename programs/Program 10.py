@@ -62,6 +62,26 @@ class LinkedList:
             current = current.next
         current.next = None
 
+    def deletepos(self, position):
+        if self.head == None:
+            return
+
+        if position == 0:
+            self.head = self.head.next
+            return
+
+        current = self.head
+
+        for i in range(position - 1):
+            if current == None:
+                return
+            current = current.next
+
+        if current == None or current.next == None:
+            return
+
+        current.next = current.next.next
+
     def show(self):
         current = self.head
         while current:
@@ -83,9 +103,10 @@ while flag:
     print("3. Insert at the position")
     print("4. Delete at front")
     print("5. Delete from the end")
-    print("6. Show the list")
-    print("7. Exit")
-    choice = int(input("Enter your choice (1-6): "))
+    print("6. Delete from the position")
+    print("7. Show the list")
+    print("8. Exit")
+    choice = int(input("Enter your choice (1-8): "))
 
     if choice == 1:
         data = int(input("Enter the data to insert at the front: "))
@@ -102,8 +123,11 @@ while flag:
     elif choice == 5:
         linked_list.deleteend()
     elif choice == 6:
-        linked_list.show()
+        position = int(input("Enter position to delete from: "))
+        linked_list.deletepos(position)
     elif choice == 7:
+        linked_list.show()
+    elif choice == 8:
         flag = False
     else:
         print("Invalid choice. Please try again.")
