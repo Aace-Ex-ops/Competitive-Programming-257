@@ -21,6 +21,30 @@ class LinkedList:
             current = current.next
         current.next = Node(data)
 
+    def insertpos(self,data, position):
+        if self.head == None:
+            return
+        
+        new_node = Node(data)
+
+        if position == 0:
+            new_node.next = self.head
+            self.head = new_node
+            return
+
+        current = self.head
+        
+        for i in range(position-1):
+            if current == None:
+                return
+            current = current.next
+
+        if current == None:
+            return
+
+        new_node.next = current.next
+        current.next = new_node
+
     def deletefront(self):
         if self.head == None:
             return
@@ -29,6 +53,9 @@ class LinkedList:
 
     def deleteend(self):
         if self.head == None:
+            return
+        if self.head.next == None:
+            self.head = None
             return
         current = self.head
         while current.next.next:
@@ -53,10 +80,11 @@ while flag:
     print("Choose an operation:")
     print("1. Insert at the front")
     print("2. Insert at the end")
-    print("3. Delete from the front")
-    print("4. Delete from the end")
-    print("5. Show the list")
-    print("6. Exit")
+    print("3. Insert at the position")
+    print("4. Delete at front")
+    print("5. Delete from the end")
+    print("6. Show the list")
+    print("7. Exit")
     choice = int(input("Enter your choice (1-6): "))
 
     if choice == 1:
@@ -66,12 +94,16 @@ while flag:
         data = int(input("Enter the data to insert at the end: "))
         linked_list.insertend(data)
     elif choice == 3:
-        linked_list.deletefront()
+        data = int(input("Enter the data to insert at position: "))
+        position = int(input("Enter position to insert at: "))
+        linked_list.insertpos(data,position)
     elif choice == 4:
-        linked_list.deleteend()
+        linked_list.deletefront()
     elif choice == 5:
-        linked_list.show()
+        linked_list.deleteend()
     elif choice == 6:
+        linked_list.show()
+    elif choice == 7:
         flag = False
     else:
         print("Invalid choice. Please try again.")
