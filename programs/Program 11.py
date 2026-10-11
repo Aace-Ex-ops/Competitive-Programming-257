@@ -34,8 +34,18 @@ class BinaryTree:
             self.dfs(node.right)
 
 bst1 = BinaryTree()
-bst1.insert(10)
-bst1.insert(5)
-bst1.insert(15)
-bst1.insert(3)
-bst1.dfs(bst1.root)
+
+while True:
+    print("1. Insert")
+    print("2. Display")
+    print("3. Exit")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        data = int(input("Enter data to insert: "))
+        bst1.insert(data)
+    elif choice == 2:
+        bst1.dfs(bst1.root)
+    elif choice == 3:
+        break
+    else:
+        print("Invalid choice")
