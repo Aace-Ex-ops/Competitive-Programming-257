@@ -81,6 +81,36 @@ class LinkedList:
             return
 
         current.next = current.next.next
+    def search(self, data):
+        if self.head == None:
+            return
+        position = 0
+        current = self.head
+        while current:
+            if current.data == data:
+                print(f"{data} found in the list in position {position}.")
+                return
+            current = current.next
+            position += 1
+        print(f"{data} not found in the list.")
+
+    def reverse(self):
+        if self.head == None:
+            return
+        prev = None
+        current = self.head
+        while(current!=None):
+            front = current.next
+            current.next = prev
+            prev = current
+            current = front
+        self.head = prev
+
+        new_current = self.head
+        while new_current:
+            print(new_current.data, end=" -> ")
+            new_current = new_current.next
+        print("None")
 
     def show(self):
         current = self.head
@@ -104,9 +134,11 @@ while flag:
     print("4. Delete at front")
     print("5. Delete from the end")
     print("6. Delete from the position")
-    print("7. Show the list")
-    print("8. Exit")
-    choice = int(input("Enter your choice (1-8): "))
+    print("7. Search for an element")
+    print("8. Reverse the list")
+    print("9. Show the list")
+    print("10. Exit")
+    choice = int(input("Enter your choice (1-10): "))
 
     if choice == 1:
         data = int(input("Enter the data to insert at the front: "))
@@ -126,8 +158,13 @@ while flag:
         position = int(input("Enter position to delete from: "))
         linked_list.deletepos(position)
     elif choice == 7:
-        linked_list.show()
+        data = int(input("Enter the data to search for: "))
+        linked_list.search(data)
     elif choice == 8:
+        linked_list.reverse()
+    elif choice == 9:
+        linked_list.show()
+    elif choice == 10:
         flag = False
     else:
         print("Invalid choice. Please try again.")
