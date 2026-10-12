@@ -33,6 +33,21 @@ class BinaryTree:
             print(node.data)
             self.dfs(node.right)
 
+    def bfs(self, node):
+        if node is None:
+            return
+        queue = [node]
+
+        while queue:
+            node = queue.pop(0)
+            print(node.data, end=" ")
+
+            if node.left is not None:
+                queue.append(node.left)
+
+            if node.right is not None:
+                queue.append(node.right)
+
 bst1 = BinaryTree()
 
 while True:
