@@ -21,7 +21,7 @@ class LinkedList:
             current = current.next
         current.next = Node(data)
 
-    def insertpos(self,data, position):
+    def insertpos(self, data, position):
         if self.head == None:
             return
         
