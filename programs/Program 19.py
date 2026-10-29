@@ -9,4 +9,8 @@ def twoSum(prices, target):
 
         seen[prices[i]] = i
 
-    return None
+
+prices = list(map(int, input().split()))
+target = int(input())
+
+print(twoSum(prices, target))
