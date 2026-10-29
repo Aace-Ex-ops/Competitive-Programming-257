@@ -8,3 +8,7 @@ def removeDuplicates(nums):
             result.append(num)
 
     return result
+
+
+nums = list(map(int, input().split()))
+print(removeDuplicates(nums))
