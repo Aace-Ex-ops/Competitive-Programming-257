@@ -15,3 +15,9 @@ def binarySearch(arr, target):
             low = mid + 1
 
     return -1
+
+
+arr = list(map(int, input().split()))
+target = int(input())
+
+print(binarySearch(arr, target))
